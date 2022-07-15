@@ -1,5 +1,5 @@
 {% set name = "pdfstream" %}
-{% set version = "0.5.2" %}
+{% set version = "0.6.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 9c2ecf1f1105ad622939a62091cea881fa0d04366609a164f43066664771979b
+  sha256: dac32f481ced3b002e02b5efde508bf02afe5a3bb278261d18f6ea0f02e762fa
 
 build:
   number: 0

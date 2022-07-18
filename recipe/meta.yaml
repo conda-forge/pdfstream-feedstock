@@ -1,6 +1,6 @@
 {% set name = "pdfstream" %}
 {% set version = "0.6.0" %}
-{% set sha256 = "" %}
+{% set sha256 = "dac32f481ced3b002e02b5efde508bf02afe5a3bb278261d18f6ea0f02e762fa" %}
 
 package:
   name: {{ name|lower }}

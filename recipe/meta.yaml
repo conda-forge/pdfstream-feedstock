@@ -33,7 +33,6 @@ requirements:
     - numba
     - pyfai
     - pyopencl
-    - pyqt
     - scikit-beam
     - xpdview
     - xray-vision

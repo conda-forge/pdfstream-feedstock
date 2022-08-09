@@ -40,8 +40,6 @@ requirements:
 test:
   imports:
     - pdfstream
-  commands:
-    - pdfstream -- --help
 
 about:
   home: https://github.com/xpdAcq/pdfstream

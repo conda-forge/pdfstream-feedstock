@@ -1,24 +1,22 @@
 {% set name = "pdfstream" %}
 {% set version = "0.6.0" %}
-{% set sha256 = "dac32f481ced3b002e02b5efde508bf02afe5a3bb278261d18f6ea0f02e762fa" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pdfstream-{{ version }}.tar.gz
+  sha256: dac32f481ced3b002e02b5efde508bf02afe5a3bb278261d18f6ea0f02e762fa
 
 build:
-  number: 0
-  noarch: python
+  skip: true  # [py<37]
   entry_points:
     - pdfstream = pdfstream.main:main
     - run_server = pdfstream.main:run_server
     - print_server_config_dir = pdfstream.main:print_server_config_dir
-  script: {{ PYTHON }} -m pip install --no-deps --ignore-installed .
+  script: {{ PYTHON }} -m pip install . -vv --no-deps
+  number: 0
 
 requirements:
   host:
@@ -27,7 +25,7 @@ requirements:
   run:
     - python >=3.8, <3.10
     - bluesky
-    - databroker =1.2
+    - databroker <2.0.0a
     - fire
     - frozendict
     - numba
@@ -40,13 +38,20 @@ requirements:
 test:
   imports:
     - pdfstream
+  commands:
+    - pip check
+    - pdfstream --help
+    - run_server --help
+    - print_server_config_dir --help
+  requires:
+    - pip
 
 about:
   home: https://github.com/xpdAcq/pdfstream
-  license: BSD-3-Clause
-  license_family: BSD
-  license_file: LICENSE
   summary: The data analysis toolbox for the study on pair distribution function (PDF).
+  license: BSD-3-Clause
+  license_file:
+    - LICENSE
 
 extra:
   recipe-maintainers:

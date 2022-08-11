@@ -11,6 +11,7 @@ source:
 
 build:
   skip: true  # [py<37]
+  noarch: python
   entry_points:
     - pdfstream = pdfstream.main:main
     - run_server = pdfstream.main:run_server
@@ -38,13 +39,6 @@ requirements:
 test:
   imports:
     - pdfstream
-  commands:
-    - pip check
-    - pdfstream --help
-    - run_server --help
-    - print_server_config_dir --help
-  requires:
-    - pip
 
 about:
   home: https://github.com/xpdAcq/pdfstream

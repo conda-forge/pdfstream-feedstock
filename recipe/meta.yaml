@@ -16,14 +16,14 @@ build:
     - run_server = pdfstream.main:run_server
     - print_server_config_dir = pdfstream.main:print_server_config_dir
   script: {{ PYTHON }} -m pip install . -vv --no-deps
-  number: 1
+  number: 2
 
 requirements:
   host:
-    - python >=3.8, <3.10
+    - python >=3.8
     - pip
   run:
-    - python >=3.8, <3.10
+    - python >=3.8
     - bluesky
     - databroker
     - fire

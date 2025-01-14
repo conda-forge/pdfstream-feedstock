@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pdfstream-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/pdfstream-{{ version }}.tar.gz
   sha256: d6aedfec9f2ae607262e14dfe9fe4bedc7d5b526c13826fa19f50dbab2159da2
 
 build:
@@ -16,14 +16,14 @@ build:
     - run_server = pdfstream.main:run_server
     - print_server_config_dir = pdfstream.main:print_server_config_dir
   script: {{ PYTHON }} -m pip install . -vv --no-deps
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - pip
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - bluesky
     - databroker
     - fire
@@ -36,6 +36,8 @@ requirements:
     - xray-vision
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - pdfstream
 
